@@ -1,5 +1,5 @@
 {
-  "name": "lodash",
+  "name": "lodash-ts",
   "version": "1.0.0",
   "description": "lodash in TypeScript.",
   "main": "index.js",
