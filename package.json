@@ -1,0 +1,33 @@
+{
+  "name": "lodash",
+  "version": "1.0.0",
+  "description": "lodash in TypeScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taoqf/lodash.git"
+  },
+  "keywords": [
+    "lodash",
+    "underscore",
+    "typescript"
+  ],
+  "author": "taoqf <tao_qiufeng@126.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taoqf/lodash/issues"
+  },
+  "homepage": "https://github.com/taoqf/lodash#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "dts-generator": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-copy": "^0.0.2",
+    "gulp-jsdoc3": "^0.3.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-typescript": "^2.14.0"
+  }
+}
