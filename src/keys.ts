@@ -10,6 +10,10 @@ import indexKeys from './_indexKeys';
 import isArrayLike from './isArrayLike';
 import isIndex from './_isIndex';
 import isPrototype from './_isPrototype';
+import isMap from './isMap';
+import isWeakMap from './isWeakMap';
+import isSet from './isSet';
+import isWeakSet from './isWeakSet';
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 const nativeKeys = Object.keys;
@@ -55,6 +59,22 @@ function baseKeys(object) {
  * // => ['0', '1']
  */
 export default function keys(object) {
+	if (isMap(object)) {
+		const keys = [];
+		(object as Map<any, any>).forEach((v, k) => {
+			keys.push(k);
+		});
+		return keys;
+	} else if (isSet(object)) {
+		const keys = [];
+		(object as Set<any>).forEach((v, k) => {
+			keys.push(k);
+		});
+		return keys;
+	} else if (isWeakMap(object) || isWeakSet(object)) {
+		console.warn('could not get keys from weakmap or weakwet.')
+		return [];
+	}
 	const isProto = isPrototype(object);
 	if (!(isProto || isArrayLike(object))) {
 		return baseKeys(object);
