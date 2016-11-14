@@ -19,7 +19,7 @@ export function copyArray<T>(array: T[], inherited: boolean, deep = true): T[] {
 	for (let i = 0; i < l; ++i) {
 		const item = array[i];
 		if (Array.isArray(item)) {
-			newArr.push(copyArray(item, inherited, deep) as any as T);
+			newArr.push(copyArray(item as any as T[], inherited, deep) as any as T);
 		} else {
 			newArr.push(!shouldDeepCopyObject(item) ?
 				item :
