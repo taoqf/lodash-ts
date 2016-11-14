@@ -1,6 +1,6 @@
 {
   "name": "lodash-ts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "lodash in TypeScript.",
   "main": "index.js",
   "scripts": {
