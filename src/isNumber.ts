@@ -21,9 +21,9 @@ const objectProto = Object.prototype;
 const objectToString = objectProto.toString;
 
 /**
- * @module @feidao/core/lodash/isNumber
+ * @module lodash-ts/isNumber
  * @example
- * import isNumber from '@feidao/core/lodash/isNumber';
+ * import isNumber from 'lodash-ts/isNumber';
  * isNumber(3);
  * // => true
  *

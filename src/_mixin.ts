@@ -13,25 +13,21 @@ function shouldDeepCopyObject(value: any): value is Object {
 	return Object.prototype.toString.call(value) === '[object Object]';
 }
 
-export function copyArray<T>(array: T[], inherited: boolean, deep = true): T[] {
-	const newArr: T[] = [];
-	const l = array && array.length;
-	for (let i = 0; i < l; ++i) {
-		const item = array[i];
+export function copyArray<T>(array: T[], inherited: boolean): T[] {
+	return array.map((item: T): T => {
 		if (Array.isArray(item)) {
-			newArr.push(copyArray(item as any as T[], inherited, deep) as any as T);
-		} else {
-			newArr.push(!shouldDeepCopyObject(item) ?
-				item :
-				_mixin({
-					deep: deep,
-					inherited: inherited,
-					sources: <Array<T>>[item],
-					target: <T>{}
-				}));
+			return <any>copyArray(<any>item, inherited);
 		}
-	}
-	return newArr;
+
+		return !shouldDeepCopyObject(item) ?
+			item :
+			_mixin({
+				deep: true,
+				inherited: inherited,
+				sources: <Array<T>>[item],
+				target: <T>{}
+			});
+	});
 }
 
 export interface MixinArgs<T extends {}, U extends {}> {

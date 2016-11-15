@@ -22,9 +22,9 @@ const objectProto = Object.prototype;
 const objectToString = objectProto.toString;
 
 /**
- * @module @feidao/core/lodash/isFunction
+ * @module lodash-ts/isFunction
  * @example
- * import isFunction from '@feidao/core/lodash/isFunction';
+ * import isFunction from 'lodash-ts/isFunction';
  *
  * isFunction(_);
  * // => true

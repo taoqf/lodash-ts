@@ -3,8 +3,17 @@
 	"compilerOptions": {
 		"module": "umd",
 		"target": "es6",
-		"noImplicitAny": false,
-		"sourceMap": false
+		"noImplicitAny": true,
+		"declaration": false,
+		"removeComments": false,
+		"noLib": false,
+		"preserveConstEnums": true,
+		"sourceMap": false,
+		"moduleResolution": "node",
+		"isolatedModules": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"suppressImplicitAnyIndexErrors": true
 	},
 	"exclude": [
 		"node_modules"

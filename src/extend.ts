@@ -7,9 +7,9 @@
 */
 
 /**
-* @module @feidao/core/lodash/extend
+* @module lodash-ts/extend
 * @example
-* import extend from '@feidao/core/lodash/extend';
+* import extend from 'lodash-ts/extend';
 * let obj1 = {};
 * let obj2 = {foo: 'bar'};
 * let obj3 = {bar: 'foo'};

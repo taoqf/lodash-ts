@@ -5,8 +5,7 @@
 * @Last Modified time:	2016-06-17 15:54:25
 * @CopyRight			飞道科技
 */
-import {copyArray} from './_mixin';
-import getTag, {enumTags} from './_getTag';
+import getTag, { enumTags } from './_getTag';
 import isArrayLike from './isArrayLike';
 import isString from './isString';
 import iteratorToArray from './_iteratorToArray';
@@ -16,12 +15,23 @@ import stringToArray from './_stringToArray';
 import values from './values';
 
 /** Built-in value references. */
-var iteratorSymbol = typeof (iteratorSymbol = Symbol && Symbol.iterator) == 'symbol' ? iteratorSymbol : undefined;
+var iteratorSymbol: symbol = typeof (iteratorSymbol = Symbol && Symbol.iterator) == 'symbol' ? iteratorSymbol : undefined;
+
+function copyArray<T>(source: T[]) {
+	let index = -1;
+	const length = source.length;
+
+	const array = Array<T>(length);
+	while (++index < length) {
+		array[index] = source[index];
+	}
+	return array;
+}
 
 /**
- * @module @feidao/core/lodash/toArray
+ * @module lodash-ts/toArray
  * @example
- * import toArray from '@feidao/core/lodash/toArray';
+ * import toArray from 'lodash-ts/toArray';
  *
  * toArray({ 'a': 1, 'b': 2 });
  * // => [1, 2]
@@ -60,12 +70,12 @@ var iteratorSymbol = typeof (iteratorSymbol = Symbol && Symbol.iterator) == 'sym
  * _.toArray(null);
  * // => []
  */
-export default function toArray(value): any[] {
+export default function toArray(value: any): any[] {
 	if (!value) {
 		return [];
 	}
 	if (isArrayLike(value)) {
-		return isString(value) ? stringToArray(value) : copyArray(value, true);
+		return isString(value) ? stringToArray(value) : copyArray(value);
 	}
 	if (iteratorSymbol && value[iteratorSymbol]) {
 		return iteratorToArray(value[iteratorSymbol]());

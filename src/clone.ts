@@ -9,9 +9,9 @@
 import _mixin from './_mixin';
 
 /**
- * @module @feidao/core/lodash/clone
+ * @module lodash-ts/clone
  * @example
- * import clone from '@feidao/core/lodash/clone';
+ * import clone from 'lodash-ts/clone';
  *
  * var objects = [{ 'a': 1 }, { 'b': 2 }];
  *

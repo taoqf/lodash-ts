@@ -1,6 +1,6 @@
 {
   "name": "lodash-ts",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "lodash in TypeScript.",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,12 @@
   "homepage": "https://github.com/taoqf/lodash#readme",
   "devDependencies": {
     "del": "^2.2.2",
-    "dts-generator": "^1.7.0",
+    "dts-generator": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-copy": "^0.0.2",
-    "gulp-jsdoc3": "^0.3.0",
+    "gulp-jsdoc3": "^1.0.1",
     "gulp-sequence": "^0.4.6",
-    "gulp-typescript": "^2.14.0"
+    "gulp-typescript": "^3.1.3",
+    "typescript": "^2.2.0-dev.20161114"
   }
 }
