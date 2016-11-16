@@ -1,6 +1,6 @@
 {
   "name": "lodash-ts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "lodash in TypeScript.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taoqf/lodash.git"
+    "url": "git+https://github.com/taoqf/lodash-ts.git"
   },
   "keywords": [
     "lodash",
