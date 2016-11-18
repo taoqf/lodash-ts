@@ -43,11 +43,12 @@ export default function _mixin<T extends {}, U extends {}>(kwArgs: MixinArgs<T, 
 	const inherited = kwArgs.inherited;
 	const target = kwArgs.target;
 
-	for (let source of kwArgs.sources) {
+	for (const name in kwArgs.sources) {
+		const source = kwArgs.sources[name];
 		if (source === null || source === undefined) {
 			continue;
 		}
-		for (let key in source) {
+		for (const key in source) {
 			if (inherited || hasOwnProperty.call(source, key)) {
 				let value: any = (<any>source)[key];
 

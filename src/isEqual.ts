@@ -12,15 +12,15 @@ import isHostObject from './_isHostObject';
 import isTypedArray from './isTypedArray';
 import mapToArray from './_mapToArray';
 import setToArray from './_setToArray';
-import getTag, {enumTags} from './_getTag';
+import getTag, { enumTags } from './_getTag';
 import keys from './keys';
 
 /** Used to convert symbols to primitives and strings. */
-const symbolProto = Symbol ? Symbol.prototype : undefined,
-    symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
+const symbolProto = typeof Symbol != 'undefined' ? Symbol.prototype : undefined;
+const symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
 /** Used to compose bitmasks for comparison styles. */
-const UNORDERED_COMPARE_FLAG = 1,
-    PARTIAL_COMPARE_FLAG = 2;
+const UNORDERED_COMPARE_FLAG = 1;
+const PARTIAL_COMPARE_FLAG = 2;
 
 function equalArrays(array: any, other: any, equalFunc: (object: any, other: any) => boolean) {
 	const arrLength = array.length,
@@ -30,7 +30,7 @@ function equalArrays(array: any, other: any, equalFunc: (object: any, other: any
 		return false;
 	}
 	// Assume cyclic values are equal.
-	var index = -1,
+	let index = -1,
 		result = true;
 
 	// Ignore non-index properties.
@@ -41,8 +41,8 @@ function equalArrays(array: any, other: any, equalFunc: (object: any, other: any
 		// Recursively compare arrays (susceptible to call stack limits).
 		if (!(
 			arrValue === othValue ||
-            equalFunc(arrValue, othValue)
-        )) {
+			equalFunc(arrValue, othValue)
+		)) {
 			result = false;
 			break;
 		}
@@ -216,7 +216,7 @@ function baseIsEqualDeep(object: any, other: any, equalFunc: (object: any, other
  * object === other;
  * // => false
  */
-export default function isEqual(value, other): boolean {
+export default function isEqual(value: any, other: any): boolean {
 	if (value === other) {
 		return true;
 	}

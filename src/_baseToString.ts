@@ -11,7 +11,7 @@ import isSymbol from './isSymbol';
 const INFINITY = 1 / 0;
 
 /** Used to convert symbols to primitives and strings. */
-const symbolProto = Symbol ? Symbol.prototype : undefined,
+const symbolProto = typeof Symbol != 'undefined' ? Symbol.prototype : undefined,
     symbolToString = symbolProto ? symbolProto.toString : undefined;
 
 /**

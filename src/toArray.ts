@@ -15,7 +15,7 @@ import stringToArray from './_stringToArray';
 import values from './values';
 
 /** Built-in value references. */
-var iteratorSymbol: symbol = typeof (iteratorSymbol = Symbol && Symbol.iterator) == 'symbol' ? iteratorSymbol : undefined;
+const iteratorSymbol: symbol = (typeof Symbol != 'undefined' && typeof Symbol.iterator == 'symbol') ? Symbol.iterator : undefined;
 
 function copyArray<T>(source: T[]) {
 	let index = -1;
