@@ -145,7 +145,7 @@ export default function clone<T>(value: T, isDeep = false): T {
 					return ((map: Map<any, any>) => {
 						const result = new Map<any, any>();
 						for (const [key, val] of map.entries()) {
-							result.set(key, clone(value, isDeep));
+							result.set(key, clone(val, isDeep));
 						}
 						return result as any;
 					})(value as any);
@@ -163,7 +163,7 @@ export default function clone<T>(value: T, isDeep = false): T {
 					return ((set: Set<any>) => {
 						const result = new Set<any>();
 						for (const val of set.values()) {
-							result.add(clone(value, isDeep))
+							result.add(clone(val, isDeep))
 						}
 						return result as any;
 					})(value as any);
