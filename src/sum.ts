@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:26
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-04-05 18:22:59
 * @CopyRight			飞道科技
 */
 
@@ -21,7 +21,7 @@
  * // => 20
  */
 export default function sum(array: number[]) {
-	return array.reduce((previousValue, currentValue, currentIndex: number, array) => {
-		previousValue + currentValue;
+	return array.reduce((previousValue, currentValue, currentIndex, array) => {
+		return previousValue + currentValue;
 	}, 0);
 }

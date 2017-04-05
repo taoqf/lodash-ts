@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const packageJson = require('./package.json');
 
 const tsc = require('gulp-typescript');
 const del = require('del');
@@ -7,31 +6,20 @@ const sequence = require('gulp-sequence');
 
 const tsProject = tsc.createProject('./tsconfig.json');
 
-const src = tsProject.config.files || ['./typings/index.d.ts'];
 const dest = './dist/';
 
 gulp.task('clean', function () {
-	return del(['./dist/', './dist-api/', './dist-umd/']);
+	return del([dest, './dist-api/', './dist-umd/']);
 });
 
-gulp.task('compile-ts', function (cb) {
-	return gulp.src(src.concat('./src/**/*.ts'))
+gulp.task('compile-ts', (cb) => {
+	const ts = require('gulp-typescript');
+	const tsProject = ts.createProject('./tsconfig.json');
+	tsProject.options.module = 1;	// commonjs
+	const dest = tsProject.options.outDir;
+	return tsProject.src()
 		.pipe(tsProject())
 		.pipe(gulp.dest(dest));
-});
-
-gulp.task('dts-generator', function (cb) {
-	require('dts-generator').default({
-		name: packageJson.name,
-		// project: './',
-		baseDir: './',
-		rootDir: './src/',
-		exclude: ['node-modules'],
-		out: dest + 'typings/' + packageJson.name + '.d.ts',
-		moduleResolution: 1,
-		target: 1
-	});
-	cb();
 });
 
 const gulpCopy = require('gulp-copy');
@@ -47,17 +35,34 @@ gulp.task('copy-files-jsdoc', function () {
 });
 
 gulp.task('compile-ts-umd', function (cb) {
-	const tsProject = tsc.createProject('./tsconfig.json');
 	const dest = './dist/umd/';
-	tsProject.options.module = 3;
-	tsProject.options.outDir = dest;
-	return gulp.src(src.concat('./src/**/*.ts'))
+	const ts = require('gulp-typescript');
+	const tsProject = ts.createProject('./tsconfig.json');
+	tsProject.options.module = 3;	// umd
+	return tsProject.src()
 		.pipe(tsProject())
 		.pipe(gulp.dest(dest));
 });
 
 gulp.task('default', function (cb) {
-	sequence('clean', 'copy-files', 'compile-ts', 'dts-generator', 'copy-files-jsdoc', 'compile-ts-umd', cb);
+	sequence('clean', 'copy-files', 'compile-ts', 'copy-files-jsdoc', 'compile-ts-umd', cb);
+});
+
+gulp.task('watch', () => {
+	const ts = require('gulp-typescript');
+	const tsProject = ts.createProject('./tsconfig.json');
+	tsProject.options.module = 1;	// commonjs
+	const outDir = tsProject.options.outDir;
+	const path = require('path');
+	return gulp.watch(['./src/**/*.ts'], (file) => {
+		const tsProject = ts.createProject('./tsconfig.json');
+		tsProject.options.module = 1;	// commonjs
+		const relative = path.relative('./src/', path.dirname(file.path));
+		const dest = path.join(outDir, relative);
+		return gulp.src([file.path])
+			.pipe(tsProject())
+			.pipe(gulp.dest(dest));
+	});
 });
 
 let jsdoc = require('gulp-jsdoc3');
