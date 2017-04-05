@@ -35,10 +35,11 @@ gulp.task('copy-files-jsdoc', function () {
 });
 
 gulp.task('compile-ts-umd', function (cb) {
-	const dest = './dist/umd/';
 	const ts = require('gulp-typescript');
 	const tsProject = ts.createProject('./tsconfig.json');
 	tsProject.options.module = 3;	// umd
+	const path = require('path');
+	const dest = path.join(tsProject.options.outDir, 'umd');
 	return tsProject.src()
 		.pipe(tsProject())
 		.pipe(gulp.dest(dest));
