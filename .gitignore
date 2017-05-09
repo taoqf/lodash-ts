@@ -1,6 +1,8 @@
 /src/**/*.js
-/node_modules
-/bower_components
-/dist
-/dist-umd
-dist-api
+/node_modules/
+/bower_components/
+/dist/
+/dist-api/
+*.log
+/yarn.lock
+/.vscode/

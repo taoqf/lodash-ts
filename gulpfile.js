@@ -1,15 +1,8 @@
 const gulp = require('gulp');
 
-const tsc = require('gulp-typescript');
-const del = require('del');
-const sequence = require('gulp-sequence');
-
-const tsProject = tsc.createProject('./tsconfig.json');
-
-const dest = './dist/';
-
-gulp.task('clean', function () {
-	return del([dest, './dist-api/', './dist-umd/']);
+gulp.task('clean', () => {
+	const del = require('del');
+	return del('./dist/');
 });
 
 gulp.task('compile-ts', (cb) => {
@@ -22,19 +15,12 @@ gulp.task('compile-ts', (cb) => {
 		.pipe(gulp.dest(dest));
 });
 
-const gulpCopy = require('gulp-copy');
-
-gulp.task('copy-files', function () {
-	return gulp.src(['./package.json', './typings.json', './readme.md'])
-		.pipe(gulpCopy(dest));
+gulp.task('copy-files', () => {
+	return gulp.src(['./package.json', './typings.json', './readme.md', './src/interfaces.jsdoc'])
+		.pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('copy-files-jsdoc', function () {
-	return gulp.src('./src/interfaces.jsdoc')
-		.pipe(gulp.dest(dest));
-});
-
-gulp.task('compile-ts-umd', function (cb) {
+gulp.task('compile-ts-umd', (cb) => {
 	const ts = require('gulp-typescript');
 	const tsProject = ts.createProject('./tsconfig.json');
 	tsProject.options.module = 3;	// umd
@@ -45,8 +31,9 @@ gulp.task('compile-ts-umd', function (cb) {
 		.pipe(gulp.dest(dest));
 });
 
-gulp.task('default', function (cb) {
-	sequence('clean', 'copy-files', 'compile-ts', 'copy-files-jsdoc', 'compile-ts-umd', cb);
+gulp.task('default', (cb) => {
+	const sequence = require('gulp-sequence');
+	sequence('clean', 'copy-files', 'compile-ts', 'compile-ts-umd', 'api', cb);
 });
 
 gulp.task('watch', () => {
@@ -66,9 +53,9 @@ gulp.task('watch', () => {
 	});
 });
 
-let jsdoc = require('gulp-jsdoc3');
 gulp.task('api', (cb) => {
-	let config = require('./jsdoc.json');
+	const jsdoc = require('gulp-jsdoc3');
+	const config = require('./jsdoc.json');
 	return gulp.src('./package.json')
 		.pipe(jsdoc(config));
 });
