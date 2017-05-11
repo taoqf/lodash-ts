@@ -1,15 +1,16 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:38
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-05-11 19:45:41
 * @CopyRight			飞道科技
 */
 import isObject from './isObject';
 
 /** `Object#toString` result references. */
-const funcTag = '[object Function]',
-    genTag = '[object GeneratorFunction]';
+const funcTag = '[object Function]';
+const genTag = '[object GeneratorFunction]';
+const asyncTag = '[object AsyncFunction]';
 
 /** Used for built-in method references. */
 const objectProto = Object.prototype;
@@ -56,5 +57,5 @@ export default function isFunction(value) {
 	// in Safari 8 which returns 'object' for typed array and weak map constructors,
 	// and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
 	var tag = isObject(value) ? objectToString.call(value) : '';
-	return tag == funcTag || tag == genTag;
+	return tag === funcTag || tag === genTag || tag === asyncTag;
 }
