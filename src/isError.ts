@@ -39,7 +39,7 @@ const objectToString = objectProto.toString;
  * _.isError(Error);
  * // => false
  */
-export default function isError(value) {
+export default function isError(value: any) {
 	if (!isObjectLike(value)) {
 		return false;
 	}

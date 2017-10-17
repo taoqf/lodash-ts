@@ -1,33 +1,36 @@
 {
-  "name": "lodash-ts",
-  "version": "1.2.2",
-  "description": "lodash in TypeScript.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/taoqf/lodash-ts.git"
-  },
-  "keywords": [
-    "lodash",
-    "underscore",
-    "typescript"
-  ],
-  "author": "taoqf <tao_qiufeng@126.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/taoqf/lodash/issues"
-  },
-  "readme": "README.md",
-  "homepage": "https://github.com/taoqf/lodash#readme",
-  "devDependencies": {
-    "del": "latest",
-    "gulp": "latest",
-    "gulp-jsdoc3": "latest",
-    "gulp-sequence": "latest",
-    "gulp-typescript": "latest",
-    "typescript": "next"
-  }
+	"name": "lodash-ts",
+	"version": "1.2.3",
+	"description": "lodash in TypeScript.",
+	"main": "index.js",
+	"scripts": {
+		"test": "npm run build",
+		"build": "gulp",
+		"watch": "tsc -w",
+		"api": "gulp api"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/taoqf/lodash-ts.git"
+	},
+	"keywords": [
+		"lodash",
+		"underscore",
+		"typescript"
+	],
+	"author": "taoqf <tao_qiufeng@126.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/taoqf/lodash/issues"
+	},
+	"readme": "README.md",
+	"homepage": "https://github.com/taoqf/lodash#readme",
+	"devDependencies": {
+		"del": "latest",
+		"gulp": "latest",
+		"gulp-jsdoc3": "latest",
+		"gulp-sequence": "latest",
+		"gulp-shell": "latest",
+		"typescript": "next"
+	}
 }

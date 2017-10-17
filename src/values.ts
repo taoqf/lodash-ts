@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:48
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 13:49:49
 * @CopyRight			飞道科技
 */
 import baseValues from './_baseValues';
@@ -34,6 +34,6 @@ import keys from './keys';
  * _.values('hi');
  * // => ['h', 'i']
  */
-export default function values(object) {
+export default function values(object: any) {
 	return object ? baseValues(object, keys(object)) : [];
 }

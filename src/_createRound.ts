@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:33
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 13:50:34
 * @CopyRight			飞道科技
 */
 import toInteger from './toInteger';
@@ -19,7 +19,7 @@ const nativeMin = Math.min;
  * @returns {Function} Returns the new round function.
  */
 export default function createRound(func: (num: number | string) => number) {
-	return function (num: number, precision) {
+	return function (num: number, precision: any) {
 		precision = nativeMin(toInteger(precision), 292);
 		if (precision) {
 			// Shift with exponential notation to avoid floating-point issues.

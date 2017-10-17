@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:23
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 13:50:45
 * @CopyRight			飞道科技
 */
 import indexKeys from './_indexKeys';
@@ -18,7 +18,7 @@ const hasOwnProperty = objectProto.hasOwnProperty;
 
 /** Built-in value references. */
 const enumerate = Reflect ? Reflect.enumerate : undefined,
-    propertyIsEnumerable = objectProto.propertyIsEnumerable;
+	propertyIsEnumerable = objectProto.propertyIsEnumerable;
 
 /**
  * The base implementation of `_.keysIn` which doesn't skip the constructor
@@ -70,7 +70,7 @@ if (enumerate && !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf')) {
  * _.keysIn(new Foo);
  * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
  */
-export default function keysIn(object) {
+export default function keysIn(object: any) {
 	let index = -1;
 	const isProto = isPrototype(object),
 		props = baseKeysIn(object),

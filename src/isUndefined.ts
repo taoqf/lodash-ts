@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:25
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 12:01:10
 * @CopyRight			飞道科技
 */
 /**
@@ -22,6 +22,6 @@
  * _.isUndefined(null);
  * // => false
  */
-export default function isUndefined(value) {
+export default function isUndefined(value: any) {
 	return value === undefined;
 }

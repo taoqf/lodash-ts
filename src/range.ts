@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:30
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 13:52:21
 * @CopyRight			飞道科技
 */
 
@@ -48,7 +48,7 @@
  * // => []
  */
 const nativeCeil = Math.ceil,
-    nativeMax = Math.max;
+	nativeMax = Math.max;
 
 /**
  * Creates a `_.range` or `_.rangeRight` function.
@@ -57,7 +57,7 @@ const nativeCeil = Math.ceil,
  * @param {boolean} [fromRight] Specify iterating from right to left.
  * @returns {Function} Returns the new range function.
  */
-export default function range(start = 0, end = 0) {
+export default function range(start = 0, end = 0): number[] {
 	// Ensure the sign of `-0` is preserved.
 	start = start === start ? start : 0;
 	if (start > end) {

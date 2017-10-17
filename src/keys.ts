@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:33
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 13:47:56
 * @CopyRight			飞道科技
 */
 import baseHas from './_baseHas';
@@ -26,7 +26,7 @@ const nativeKeys = Object.keys;
  * @param {Object} object The object to query.
  * @returns {Array} Returns the array of property names.
  */
-function baseKeys(object) {
+function baseKeys(object: any) {
 	return nativeKeys(Object(object));
 }
 
@@ -58,15 +58,15 @@ function baseKeys(object) {
  * _.keys('hi');
  * // => ['0', '1']
  */
-export default function keys(object) {
+export default function keys(object: any) {
 	if (isMap(object)) {
-		const keys = [];
+		const keys = [] as string[];
 		(object as Map<any, any>).forEach((v, k) => {
 			keys.push(k);
 		});
 		return keys;
 	} else if (isSet(object)) {
-		const keys = [];
+		const keys = [] as string[];
 		(object as Set<any>).forEach((v, k) => {
 			keys.push(k);
 		});

@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:50
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:45:52
 * @CopyRight			飞道科技
 */
 import baseToString from './_baseToString';
@@ -55,7 +55,7 @@ function baseRepeat(str: string, n: number) {
  * @param {string} [chars=' '] The string used as padding.
  * @returns {string} Returns the padding for `string`.
  */
-export default function createPadding(length: number, chars) {
+export default function createPadding(length: number, chars: any) {
 	chars = chars === undefined ? ' ' : baseToString(chars);
 
 	const charsLength = chars.length;
@@ -64,6 +64,6 @@ export default function createPadding(length: number, chars) {
 	}
 	const result = baseRepeat(chars, nativeCeil(length / stringSize(chars)));
 	return reHasComplexSymbol.test(chars)
-		? castSlice(stringToArray(result), 0, length).join('')
+		? castSlice(stringToArray(result) as any[], 0, length).join('')
 		: result.slice(0, length);
 }

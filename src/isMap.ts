@@ -1,11 +1,11 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:50
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:59:48
 * @CopyRight			飞道科技
 */
-import getTag, {enumTags} from './_getTag';
+import getTag, { enumTags } from './_getTag';
 import isObjectLike from './isObjectLike';
 
 /**
@@ -26,6 +26,6 @@ import isObjectLike from './isObjectLike';
  * _.isMap(new WeakMap);
  * // => false
  */
-export default function isMap(value) {
+export default function isMap(value: any) {
 	return isObjectLike(value) && getTag(value) == enumTags.mapTag;
 }

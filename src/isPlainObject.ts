@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:53
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 12:00:26
 * @CopyRight			飞道科技
 */
 import getPrototype from './_getPrototype';
@@ -60,7 +60,7 @@ const objectToString = objectProto.toString;
  * _.isPlainObject(Object.create(null));
  * // => true
  */
-export default function isPlainObject(value) {
+export default function isPlainObject(value: any) {
 	if (!isObjectLike(value) ||
 		objectToString.call(value) != objectTag || isHostObject(value)) {
 		return false;

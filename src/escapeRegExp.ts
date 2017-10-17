@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:33
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:49:43
 * @CopyRight			飞道科技
 */
 import toString from './toString';
@@ -12,7 +12,7 @@ import toString from './toString';
  * [syntax characters](http://ecma-international.org/ecma-262/6.0/#sec-patterns).
  */
 const reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
-    reHasRegExpChar = RegExp(reRegExpChar.source);
+	reHasRegExpChar = RegExp(reRegExpChar.source);
 
 /**
  * Escapes the `RegExp` special characters "^", "$", "\", ".", "*", "+",
@@ -29,7 +29,7 @@ const reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
  * _.escapeRegExp('[lodash](https://lodash.com/)');
  * // => '\[lodash\]\(https://lodash\.com/\)'
  */
-export default function escapeRegExp(str) {
+export default function escapeRegExp(str: string) {
 	str = toString(str);
 	return (str && reHasRegExpChar.test(str))
 		? str.replace(reRegExpChar, '\\$&')

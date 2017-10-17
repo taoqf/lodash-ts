@@ -46,7 +46,7 @@ const isMaskable = coreJsData ? isFunction : stubFalse;
  * _.isNative(_);
  * // => false
  */
-export default function isNative(value) {
+export default function isNative(value: any) {
 	if (isMaskable(value)) {
 		throw new Error('This method is not supported with `core-js`. Try https://github.com/es-shims.');
 	}

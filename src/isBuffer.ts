@@ -1,14 +1,14 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:24
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:51:18
 * @CopyRight			飞道科技
 */
 import root from './_root';
 import stubFalse from './stubFalse';
 
-declare const exports, module;
+declare const exports: any, module: any;
 /** Detect free variable `exports`. */
 const freeExports = typeof exports == 'object' && exports;
 
@@ -38,7 +38,7 @@ const Buffer = moduleExports ? root.Buffer : undefined;
  * _.isBuffer(new Uint8Array(2));
  * // => false
  */
-const isBuffer = !Buffer ? stubFalse : function (value) {
+const isBuffer = !Buffer ? stubFalse : function (value: any) {
 	return value instanceof Buffer;
 };
 

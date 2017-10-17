@@ -1,15 +1,15 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:50
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:49:27
 * @CopyRight			飞道科技
 */
 import toString from './toString';
 
 /** Used to match HTML entities and HTML characters. */
 const reUnescapedHtml = /[&<>"'`]/g,
-    reHasUnescapedHtml = RegExp(reUnescapedHtml.source);
+	reHasUnescapedHtml = RegExp(reUnescapedHtml.source);
 
 const htmlEscapes = {
 	'&': '&amp;',
@@ -27,7 +27,7 @@ const htmlEscapes = {
  * @param {string} chr The matched character to escape.
  * @returns {string} Returns the escaped character.
  */
-function escapeHtmlChar(chr) {
+function escapeHtmlChar(chr: string) {
 	return htmlEscapes[chr];
 }
 /**
@@ -64,7 +64,7 @@ function escapeHtmlChar(chr) {
  * _.escape('fred, barney, & pebbles');
  * // => 'fred, barney, &amp; pebbles'
  */
-export default function escape(str) {
+export default function escape(str: string) {
 	str = toString(str);
 	return (str && reHasUnescapedHtml.test(str))
 		? str.replace(reUnescapedHtml, escapeHtmlChar)

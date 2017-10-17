@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:26
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 13:50:08
 * @CopyRight			飞道科技
 */
 import baseValues from './_baseValues';
@@ -32,6 +32,6 @@ import keysIn from './keysIn';
  * _.valuesIn(new Foo);
  * // => [1, 2, 3] (iteration order is not guaranteed)
  */
-export default function valuesIn(object) {
+export default function valuesIn(object: any) {
 	return object == null ? [] : baseValues(object, keysIn(object));
 }

@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:24
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 12:01:04
 * @CopyRight			飞道科技
 */
 import isLength from './isLength';
@@ -10,30 +10,30 @@ import isObjectLike from './isObjectLike';
 
 /** `Object#toString` result references. */
 const argsTag = '[object Arguments]',
-    arrayTag = '[object Array]',
-    boolTag = '[object Boolean]',
-    dateTag = '[object Date]',
-    errorTag = '[object Error]',
-    funcTag = '[object Function]',
-    mapTag = '[object Map]',
-    numberTag = '[object Number]',
-    objectTag = '[object Object]',
-    regexpTag = '[object RegExp]',
-    setTag = '[object Set]',
-    stringTag = '[object String]',
-    weakMapTag = '[object WeakMap]';
+	arrayTag = '[object Array]',
+	boolTag = '[object Boolean]',
+	dateTag = '[object Date]',
+	errorTag = '[object Error]',
+	funcTag = '[object Function]',
+	mapTag = '[object Map]',
+	numberTag = '[object Number]',
+	objectTag = '[object Object]',
+	regexpTag = '[object RegExp]',
+	setTag = '[object Set]',
+	stringTag = '[object String]',
+	weakMapTag = '[object WeakMap]';
 
 const arrayBufferTag = '[object ArrayBuffer]',
-    dataViewTag = '[object DataView]',
-    float32Tag = '[object Float32Array]',
-    float64Tag = '[object Float64Array]',
-    int8Tag = '[object Int8Array]',
-    int16Tag = '[object Int16Array]',
-    int32Tag = '[object Int32Array]',
-    uint8Tag = '[object Uint8Array]',
-    uint8ClampedTag = '[object Uint8ClampedArray]',
-    uint16Tag = '[object Uint16Array]',
-    uint32Tag = '[object Uint32Array]';
+	dataViewTag = '[object DataView]',
+	float32Tag = '[object Float32Array]',
+	float64Tag = '[object Float64Array]',
+	int8Tag = '[object Int8Array]',
+	int16Tag = '[object Int16Array]',
+	int32Tag = '[object Int32Array]',
+	uint8Tag = '[object Uint8Array]',
+	uint8ClampedTag = '[object Uint8ClampedArray]',
+	uint16Tag = '[object Uint16Array]',
+	uint32Tag = '[object Uint32Array]';
 
 /** Used to identify `toStringTag` values of typed arrays. */
 const typedArrayTags = {};
@@ -79,7 +79,7 @@ const objectToString = objectProto.toString;
  * _.isTypedArray([]);
  * // => false
  */
-export default function isTypedArray(value) {
+export default function isTypedArray(value: any) {
 	return isObjectLike(value) &&
 		isLength(value && value.length) && !!typedArrayTags[objectToString.call(value)];
 }

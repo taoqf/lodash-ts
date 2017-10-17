@@ -22,6 +22,6 @@
  * _.isNull(void 0);
  * // => false
  */
-export default function isNull(value) {
+export default function isNull(value: any) {
 	return value === null;
 }

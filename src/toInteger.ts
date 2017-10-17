@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-17 15:47:33
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:50
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:46:43
 * @CopyRight			飞道科技
 */
 import toFinite from './toFinite';
@@ -33,7 +33,7 @@ import toFinite from './toFinite';
  * _.toInteger('3.2');
  * // => 3
  */
-export default function toInteger(value) {
+export default function toInteger(value: any) {
 	const result = toFinite(value),
 		remainder = result % 1;
 

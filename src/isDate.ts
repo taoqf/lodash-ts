@@ -38,6 +38,6 @@ const objectToString = objectProto.toString;
  * _.isDate('Mon April 23 2012');
  * // => false
  */
-export default function isDate(value) {
+export default function isDate(value: any) {
 	return isObjectLike(value) && objectToString.call(value) == dateTag;
 }

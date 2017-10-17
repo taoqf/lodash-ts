@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-17 15:47:25
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:46
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:43:47
 * @CopyRight			飞道科技
 */
 import isFunction from './isFunction';
@@ -39,7 +39,7 @@ const reIsNative = RegExp('^' +
 const maskSrcKey = (function () {
 	const uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
 	return uid ? ('Symbol(src)_1.' + uid) : '';
-} ());
+}());
 
 /**
  * Checks if `func` has its source masked.
@@ -48,7 +48,7 @@ const maskSrcKey = (function () {
  * @param {Function} func The function to check.
  * @returns {boolean} Returns `true` if `func` is masked, else `false`.
  */
-function isMasked(func) {
+function isMasked(func: Function) {
 	return !!maskSrcKey && (maskSrcKey in func);
 }
 
@@ -60,7 +60,7 @@ function isMasked(func) {
  * @returns {boolean} Returns `true` if `value` is a native function,
  *  else `false`.
  */
-export default function baseIsNative(value) {
+export default function baseIsNative(value: any) {
 	if (!isObject(value) || isMasked(value)) {
 		return false;
 	}

@@ -25,6 +25,6 @@ import clone from './clone';
  * console.log(deep[0] === objects[0]);
  * // => false
  */
-export default function cloneDeep(value) {
-  return clone(value, true);
+export default function cloneDeep(value: any) {
+	return clone(value, true);
 }

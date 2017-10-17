@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:48
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:48:32
 * @CopyRight			飞道科技
 */
 import castPath from './_castPath';
@@ -28,9 +28,10 @@ export default function hasPath<T extends {}>(obj: T, path: string | string[], h
 
 	let index = -1;
 	let length = path_arr.length;
+	let key = undefined as any as (string | symbol);
 
 	while (++index < length) {
-		var key = toKey(path_arr[index]);
+		key = toKey(path_arr[index]);
 		if (!(obj != null && hasFunc(obj, key))) {
 			return true;
 		}

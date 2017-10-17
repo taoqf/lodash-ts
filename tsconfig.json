@@ -1,15 +1,29 @@
 {
+	"exclude": [
+		"./dist/"
+	],
+	"include": [
+		"./src/**/*.ts"
+	],
+	"jsdoc": {
+		"out": "./docs/" //,
+		// "access": "set to public if you want to skip protected members"
+	},
+	"compileOnSave": false,
 	"compilerOptions": {
 		"module": "commonjs",
-		"target": "es6",
-		"noImplicitAny": false,
+		"target": "esnext",
+		"noImplicitAny": true,
 		"sourceMap": false,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"strictNullChecks": false,
 		"noImplicitThis": true,
 		"rootDir": "./src/",
-		"rootDirs": [],
+		"rootDirs": [
+			"./src/",
+			"./tests/"
+		],
 		"allowJs": false,
 		"allowUnreachableCode": false,
 		"allowUnusedLabels": false,
@@ -27,14 +41,13 @@
 		"inlineSources": false,
 		"isolatedModules": false,
 		"lib": [
-			"es6",
-			"es7",
+			"esnext",
 			"dom"
 		],
-		"listFiles": true, // default false
-		"listEmittedFiles": true, // default false
+		"listFiles": false,
+		"listEmittedFiles": false,
 		"locale": "zh_CN",
-		"newLine": "CRLF",
+		"newLine": "lf",
 		"noEmit": false,
 		"moduleResolution": "node",
 		"noEmitHelpers": false,
@@ -44,7 +57,6 @@
 		"maxNodeModuleJsDepth": 0,
 		"noLib": false,
 		"outDir": "./dist",
-		// "outFile": "./dist/tqf",
 		"noFallthroughCasesInSwitch": false,
 		"noResolve": false,
 		"noUnusedLocals": false,
@@ -52,15 +64,16 @@
 		"paths": {},
 		"preserveConstEnums": false,
 		"pretty": true,
-		// "mapRoot": "",
 		"removeComments": false,
 		"skipDefaultLibCheck": true, // default false
 		"skipLibCheck": true, // default false
 		"stripInternal": false,
 		"suppressExcessPropertyErrors": false,
 		"suppressImplicitAnyIndexErrors": true, // default false
-		"traceResolution": true, // default false
-		"typeRoots": [],
+		"traceResolution": false,
+		"typeRoots": [
+			// "./node_modules/@types/"
+		],
 		"types": [],
 		"watch": false
 	}

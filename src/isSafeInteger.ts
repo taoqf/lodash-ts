@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:52
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 12:00:39
 * @CopyRight			飞道科技
 */
 import isInteger from './isInteger';
@@ -38,6 +38,6 @@ const MAX_SAFE_INTEGER = 9007199254740991;
  * _.isSafeInteger('3');
  * // => false
  */
-export default function isSafeInteger(value) {
+export default function isSafeInteger(value: any) {
 	return isInteger(value) && value >= -MAX_SAFE_INTEGER && value <= MAX_SAFE_INTEGER;
 }

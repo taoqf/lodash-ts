@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:39
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 12:00:00
 * @CopyRight			飞道科技
 */
 /**
@@ -25,6 +25,6 @@
  * _.isNil(NaN);
  * // => false
  */
-export default function isNil(value) {
+export default function isNil(value: any) {
 	return value == null;
 }

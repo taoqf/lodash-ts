@@ -1,8 +1,8 @@
 /*
 * @Author:        taoqf
 * @Date:        2016-06-17 15:47:20
-* @Last Modified by:  taoqf
-* @Last Modified time:  2016-06-17 15:47:20
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:43:28
 * @CopyRight      飞道科技
 */
 
@@ -16,7 +16,7 @@ import isArray from './isArray';
  * @param {*} value The value to check.
  * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
  */
-function isFlattenable(value) {
+function isFlattenable(value: any) {
 	return isArray(value) || isArguments(value);
 }
 
@@ -36,7 +36,7 @@ export default function baseFlatten(array: any[], depth: number, predicate?: (va
 		length = array.length;
 	predicate || (predicate = isFlattenable);
 
-	let result = [];
+	let result = [] as any[];
 
 	while (++index < length) {
 		var value = array[index];

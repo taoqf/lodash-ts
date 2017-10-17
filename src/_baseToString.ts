@@ -12,7 +12,7 @@ const INFINITY = 1 / 0;
 
 /** Used to convert symbols to primitives and strings. */
 const symbolProto = typeof Symbol != 'undefined' ? Symbol.prototype : undefined,
-    symbolToString = symbolProto ? symbolProto.toString : undefined;
+	symbolToString = symbolProto ? symbolProto.toString : undefined;
 
 /**
  * The base implementation of `_.toString` which doesn't convert nullish
@@ -22,7 +22,7 @@ const symbolProto = typeof Symbol != 'undefined' ? Symbol.prototype : undefined,
  * @param {*} value The value to process.
  * @returns {string} Returns the string.
  */
-export default function baseToString(value): string {
+export default function baseToString(value: any): string {
 	// Exit early for strings to avoid a performance hit in some environments.
 	if (typeof value == 'string') {
 		return value;
@@ -30,6 +30,6 @@ export default function baseToString(value): string {
 	if (isSymbol(value)) {
 		return symbolToString ? symbolToString.call(value) : '';
 	}
-	var result = (value + '');
+	const result = (value + '');
 	return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
 }

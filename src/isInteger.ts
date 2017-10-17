@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:37
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:59:42
 * @CopyRight			飞道科技
 */
 import toInteger from './toInteger';
@@ -33,6 +33,6 @@ import toInteger from './toInteger';
  * _.isInteger('3');
  * // => false
  */
-export default function isInteger(value) {
+export default function isInteger(value: any) {
 	return typeof value == 'number' && value == toInteger(value);
 }

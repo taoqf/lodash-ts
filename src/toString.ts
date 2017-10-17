@@ -28,6 +28,6 @@ import baseToString from './_baseToString';
  * _.toString([1, 2, 3]);
  * // => '1,2,3'
  */
-export default function toString(value) {
+export default function toString(value: any) {
 	return value == null ? '' : baseToString(value);
 }

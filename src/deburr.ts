@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:54
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:49:14
 * @CopyRight			飞道科技
 */
 import deburrLetter from './_deburrLetter';
@@ -13,7 +13,7 @@ const reLatin1 = /[\xc0-\xd6\xd8-\xde\xdf-\xf6\xf8-\xff]/g;
 
 /** Used to compose unicode character classes. */
 const rsComboMarksRange = '\\u0300-\\u036f\\ufe20-\\ufe23',
-    rsComboSymbolsRange = '\\u20d0-\\u20f0';
+	rsComboSymbolsRange = '\\u20d0-\\u20f0';
 
 /** Used to compose unicode capture groups. */
 const rsCombo = '[' + rsComboMarksRange + rsComboSymbolsRange + ']';
@@ -34,14 +34,14 @@ const reComboMark = RegExp(rsCombo, 'g');
  * @memberOf _
  * @since 3.0.0
  * @category String
- * @param {string} [string=''] The string to deburr.
+ * @param {string} [str=''] The string to deburr.
  * @returns {string} Returns the deburred string.
  * @example
  *
  * _.deburr('déjà vu');
  * // => 'deja vu'
  */
-export default function deburr(string) {
-	string = toString(string);
-	return string && string.replace(reLatin1, deburrLetter).replace(reComboMark, '');
+export default function deburr(str: string) {
+	str = toString(str);
+	return str && str.replace(reLatin1, deburrLetter).replace(reComboMark, '');
 }

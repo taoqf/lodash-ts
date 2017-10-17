@@ -15,7 +15,7 @@ const objectProto = Object.prototype;
  * @param {*} value The value to check.
  * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
  */
-export default function isPrototype(value) {
+export default function isPrototype(value: any) {
 	const Ctor = value && value.constructor,
 		proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
 

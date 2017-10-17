@@ -1,11 +1,11 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:26
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:51:50
 * @CopyRight			飞道科技
 */
-import getTag, {enumTags} from './_getTag';
+import getTag, { enumTags } from './_getTag';
 import isArguments from './isArguments';
 import isArray from './isArray';
 import isArrayLike from './isArrayLike';
@@ -60,7 +60,7 @@ const nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
  * _.isEmpty({ 'a': 1 });
  * // => false
  */
-export default function isEmpty(value) {
+export default function isEmpty(value: any) {
 	if (isArrayLike(value) &&
 		(isArray(value) || isString(value) || isFunction(value.splice) ||
 			isArguments(value) || isBuffer(value))) {

@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:46
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 11:59:19
 * @CopyRight			飞道科技
 */
 import hasPath from './_hasPath';
@@ -12,12 +12,12 @@ import hasPath from './_hasPath';
  * The base implementation of `_.hasIn` without support for deep paths.
  *
  * @private
- * @param {Object} [object] The object to query.
+ * @param {Object} [obj] The object to query.
  * @param {Array|string} key The key to check.
  * @returns {boolean} Returns `true` if `key` exists, else `false`.
  */
-function baseHasIn(object, key) {
-	return object != null && key in Object(object);
+function baseHasIn(obj: any, key: string | symbol) {
+	return obj != null && key in Object(obj);
 }
 
 /**

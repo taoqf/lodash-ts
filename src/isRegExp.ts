@@ -1,8 +1,8 @@
 /*
 * @Author:				taoqf
 * @Date:				2016-06-15 11:59:02
-* @Last Modified by:	taoqf
-* @Last Modified time:	2016-06-17 15:54:26
+ * @Last Modified by: taoqf
+ * @Last Modified time: 2017-10-17 12:00:31
 * @CopyRight			飞道科技
 */
 import isObject from './isObject';
@@ -38,6 +38,6 @@ const objectToString = objectProto.toString;
  * _.isRegExp('/abc/');
  * // => false
  */
-export default function isRegExp(value) {
+export default function isRegExp(value: any) {
 	return isObject(value) && objectToString.call(value) == regexpTag;
 }

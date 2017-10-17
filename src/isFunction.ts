@@ -52,7 +52,7 @@ const objectToString = objectProto.toString;
  * _.isFunction(/abc/);
  * // => false
  */
-export default function isFunction(value) {
+export default function isFunction(value: any) {
 	// The use of `Object#toString` avoids issues with the `typeof` operator
 	// in Safari 8 which returns 'object' for typed array and weak map constructors,
 	// and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
