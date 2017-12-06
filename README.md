@@ -8,7 +8,6 @@ You can use webpack for your project.
 Using npm:
 ```shell
 $ npm i --save lodash-ts
-$ typings install npm:lodash-ts/typings/lodash-ts.d.ts --save --global
 ```
 
 In Node.js:
