@@ -12,9 +12,11 @@ gulp.task('copy-files', () => {
 		.pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('compile-ts', shell.task('tsc'));
+gulp.task('compile-ts', shell.task('tsc -m commonjs'));
 
 gulp.task('compile-ts-umd', shell.task('tsc -m umd --outDir ./dist/umd/'));
+
+gulp.task('compile-ts-es', shell.task('tsc -m esnext --outDir ./dist/es/'));
 
 gulp.task('api', (cb) => {
 	const jsdoc = require('gulp-jsdoc3');
@@ -23,4 +25,4 @@ gulp.task('api', (cb) => {
 		.pipe(jsdoc(config));
 });
 
-gulp.task('default', sequence('clean', 'copy-files', 'compile-ts', 'compile-ts-umd', 'api'));
+gulp.task('default', sequence('clean', 'copy-files', 'compile-ts', 'compile-ts-umd', 'compile-ts-es', 'api'));
