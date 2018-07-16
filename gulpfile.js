@@ -14,7 +14,7 @@ gulp.task('copy-files', () => {
 
 gulp.task('compile-ts', shell.task('tsc -m commonjs'));
 
-gulp.task('compile-ts-umd', shell.task('tsc -m umd --outDir ./dist/umd/'));
+gulp.task('compile-ts-umd', shell.task('tsc -t es5 -m umd --outDir ./dist/umd/'));
 
 gulp.task('compile-ts-es', shell.task('tsc -m esnext --outDir ./dist/es/'));
 
