@@ -143,11 +143,7 @@ export default function clone<T>(value: T, isDeep = false): T {
 					})(value as any);
 				case enumTags.mapTag:
 					return ((map: Map<any, any>) => {
-						const result = new Map<any, any>();
-						for (const [key, val] of map.entries()) {
-							result.set(key, clone(val, isDeep));
-						}
-						return result as any;
+						return new Map(Array.from(map.entries())) as any;
 					})(value as any);
 				case enumTags.numberTag:
 					return new Number(value) as any;
@@ -161,11 +157,9 @@ export default function clone<T>(value: T, isDeep = false): T {
 					})(value as any);
 				case enumTags.setTag:
 					return ((set: Set<any>) => {
-						const result = new Set<any>();
-						for (const val of set.values()) {
-							result.add(clone(val, isDeep))
-						}
-						return result as any;
+						return new Set<any>(Array.from(set.values()).map((val) => {
+							return clone(val, isDeep);
+						})) as any;
 					})(value as any);
 				case enumTags.symbolTag:
 					return ((symbol: Symbol) => {
