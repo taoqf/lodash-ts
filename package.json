@@ -26,11 +26,11 @@
 	"readme": "README.md",
 	"homepage": "https://github.com/taoqf/lodash#readme",
 	"devDependencies": {
-		"del": "latest",
-		"gulp": "latest",
-		"gulp-jsdoc3": "latest",
-		"gulp-sequence": "latest",
-		"gulp-shell": "latest",
-		"typescript": "next"
+		"del": "3.0.0",
+		"gulp": "3.9.1",
+		"gulp-jsdoc3": "2.0.0",
+		"gulp-sequence": "1.0.0",
+		"gulp-shell": "0.6.5",
+		"typescript": "3.1.0-dev.20180817"
 	}
 }
